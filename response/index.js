@@ -12,9 +12,14 @@ const createJSON = (status, code, message, data) => {
 }
 
 const success = (data, res) => {
-	res.status(200).json( createJSON(true, 200, 'success', data) )
+	res.status(200).send( createJSON(true, 200, 'Success', data) )
+}
+
+const serverError = (data, res) => {
+	res.status(501).send( createJSON(false, 501, 'Internal server error', data) )
 }
 
 module.exports = {
-	success
+	success,
+	serverError
 }

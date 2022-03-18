@@ -8,4 +8,7 @@ module.exports = app => {
 
 	app.route('/droppoints')
 		.get( controller.DropPoints.getter )
+
+	app.route('/openorders')
+		.get( controller.OpenOrder.getter )
 }
