@@ -23,5 +23,8 @@ module.exports = app => {
 
 	app.route('/orders/:openOrderId')
 		.get( controller.orders.getter.byOpenOrder )
+
+	app.route('/orders')
+		.post( controller.orders.setter.createOrder )
 	
 }

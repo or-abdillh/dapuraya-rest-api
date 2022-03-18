@@ -23,6 +23,9 @@ module.exports = {
 		getter: {
 			count: require('./modules/getOrdersCount.js'),
 			byOpenOrder: require('./modules/getOrdersByOpenOrder.js')
+		},
+		setter: {
+			createOrder: require('./modules/createOrder.js')
 		}
 	}
 }

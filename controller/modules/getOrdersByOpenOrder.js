@@ -3,8 +3,7 @@
 const response = require('../../response')
 const conn = require('../../connection.js')
 
-//Get orders list by open order and drop point
-
+//Get orders list by open order id
 module.exports = (req, res) => {
 
 	//Get openOrderId
@@ -33,7 +32,7 @@ module.exports = (req, res) => {
 							phone: formatingPhone(data.order_customer_phone),
 							address: data.order_customer_address,
 							delivered: Boolean(data.order_delivered),
-							paymentStatus: Boolean(data.order_payment_done),
+							paymentStatus: Boolean(data.order_payment_status),
 							total: {
 								items: data.order_total_item,
 								price: data.order_total_price.toLocaleString('id')	
