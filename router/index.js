@@ -17,5 +17,8 @@ module.exports = app => {
 
 	app.route('/products/ready-stock')
 		.get( controller.products.getter.withReadyStock )
+
+	app.route('/orders/count')
+		.get( controller.orders.getter.count )
 	
 }

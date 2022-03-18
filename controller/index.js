@@ -18,5 +18,10 @@ module.exports = {
 		getter: {
 			withReadyStock: require('./modules/productsWithReadyStock.js')
 		}
+	},
+	orders: {
+		getter: {
+			count: require('./modules/getOrdersCount.js')
+		}
 	}
 }
