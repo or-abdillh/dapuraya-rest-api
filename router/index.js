@@ -6,9 +6,13 @@ module.exports = app => {
 
 	app.route('/').get( controller.index )
 
-	app.route('/droppoints')
-		.get( controller.DropPoints.getter )
+	app.route('/drop-points-with-open-order')
+		.get( controller.dropPoints.getter.dropPointsWithOpenOrder )
 
-	app.route('/openorders')
-		.get( controller.OpenOrder.getter )
+	app.route('/drop-points')
+		.get( controller.dropPoints.getter.all )
+
+	app.route('/open-orders')
+		.get( controller.openOrders.getter.all )
+	
 }
