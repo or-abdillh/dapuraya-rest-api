@@ -6,12 +6,17 @@ module.exports = {
 	dropPoints: {
 		getter: {
 			all: require('./modules/getDropPoints.js'),
-			dropPointsWithOpenOrder: require('./modules/dropPointsWithOpenOrder.js')
+			withOpenOrder: require('./modules/dropPointsWithOpenOrder.js')
 		}
 	},
 	openOrders: {
 		getter: {
 			all: require('./modules/getOpenOrder.js')
+		}
+	},
+	products: {
+		getter: {
+			withReadyStock: require('./modules/productsWithReadyStock.js')
 		}
 	}
 }

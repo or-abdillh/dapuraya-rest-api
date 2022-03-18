@@ -7,7 +7,7 @@ const conn = require('../../connection.js')
 
 module.exports = (req, res) => {
 
-	const sql = 'SELECT drop_points.drop_point_name, open_order.open_order_date FROM drop_points INNER JOIN open_order ON drop_points.drop_point_id = open_order.drop_point_id'
+	const sql = 'SELECT drop_points.drop_point_name, open_orders.open_order_date FROM drop_points INNER JOIN open_orders ON drop_points.drop_point_id = open_orders.drop_point_id'
 	//Get drop points
 	conn.query(sql, (err, rows) => {
 		try {
@@ -17,7 +17,7 @@ module.exports = (req, res) => {
 				}, res)
 			} else throw err
 		} catch(err) {
-			response.serverError({ code: err.code, sqlMessage: err.sqlMessage }, res)
+			response.sqlError(err, res)
 		}
 	})
 }

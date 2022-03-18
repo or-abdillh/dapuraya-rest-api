@@ -15,11 +15,11 @@ const success = (data, res) => {
 	res.status(200).send( createJSON(true, 200, 'Success', data) )
 }
 
-const serverError = (data, res) => {
-	res.status(501).send( createJSON(false, 501, 'Internal server error', data) )
+const sqlError = (err, res) => {
+	res.status(501).send( createJSON(false, 501, 'Error from SQL', err) )
 }
 
 module.exports = {
 	success,
-	serverError
+	sqlError
 }

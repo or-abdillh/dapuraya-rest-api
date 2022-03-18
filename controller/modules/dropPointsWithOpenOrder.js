@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 
 	const sql = `
 		SELECT * FROM drop_points ;
-		SELECT open_order.drop_point_id, open_order.open_order_date FROM drop_points INNER JOIN open_order ON drop_points.drop_point_id = open_order.drop_point_id
+		SELECT open_orders.drop_point_id, open_orders.open_order_date, open_orders.open_order_id FROM drop_points INNER JOIN open_orders ON drop_points.drop_point_id = open_orders.drop_point_id
 	`
 
 	conn.query(sql, (err, rows) => {
@@ -32,7 +32,12 @@ module.exports = (req, res) => {
 					
 					const filtered =  openOrders.filter( item => item.drop_point_id === sample.dropPointID ) || false
 					if ( filtered.length > 0 ) {
-						sample.openOrders = filtered.map( item => new Date(item.open_order_date).toLocaleString('id').split(' ')[0] )
+						sample.openOrders = filtered.map( item => {
+							return {
+								id: item.open_order_id,
+								date: new Date(item.open_order_date).toLocaleString('id').split(' ')[0]
+							}
+						})
 					}
 
 					results.dropPoints.push(sample)
@@ -41,9 +46,7 @@ module.exports = (req, res) => {
 				response.success(results, res)
 			} else throw err
 		} catch(err) {
-			response.serverError({
-				code: err.code, sqlMessage: err.sqlMessage
-			}, res)
+			response.sqlError(err, res)
 		}
 	})
 }

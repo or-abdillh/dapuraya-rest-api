@@ -17,7 +17,7 @@ module.exports = (req, res) => {
 				}, res)
 			} else throw err
 		} catch(err) {
-			response.serverError({ code: err.code, sqlMessage: err.sqlMessage }, res)
+			response.sqlError(err, res)
 		}
 	})
 }
