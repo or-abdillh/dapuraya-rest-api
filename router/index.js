@@ -20,5 +20,8 @@ module.exports = app => {
 
 	app.route('/orders/count')
 		.get( controller.orders.getter.count )
+
+	app.route('/orders/:openOrderId')
+		.get( controller.orders.getter.byOpenOrder )
 	
 }
