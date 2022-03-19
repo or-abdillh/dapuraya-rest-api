@@ -15,10 +15,9 @@ const app = express()
 app.use( bodyParser.urlencoded({ extended: true }) )
 app.use( bodyParser.json() )
 app.use( cors() )
+app.use(logger)
 
 router(app)
-
-app.use(logger)
 
 app.listen(PORT, err => {
 	if (err) throw err
