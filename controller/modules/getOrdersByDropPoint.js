@@ -3,31 +3,33 @@
 const response = require('../../response')
 const conn = require('../../connection.js')
 
-//Get orders list by open order id
+//Get orders list by drop point id
 module.exports = (req, res) => {
 
-	//Get openOrderId
-	const openOrderId = req.params.openOrderId
+	//Get dropPoint
+	const id = req.params.dropPoint
 
 	const sql = `
-		SELECT * FROM orders WHERE open_order_id = ${openOrderId} ;
-		SELECT open_order_date FROM open_orders WHERE open_order_id = ${openOrderId} ;
-		SELECT carts.order_id, products.product_name, carts.cart_amounts, carts.cart_price FROM carts INNER JOIN products ON carts.product_id = products.product_id
+		SELECT * FROM orders INNER JOIN open_orders ON ( orders.drop_point_id = ${id} AND orders.open_order_id = open_orders.open_order_id ) ;
+		SELECT carts.order_id, products.product_name, carts.cart_amounts, carts.cart_price FROM carts INNER JOIN products ON carts.product_id = products.product_id ;
+		SELECT drop_point_name FROM drop_points WHERE drop_point_id = ${id}
 	`
 
 	conn.query(sql, (err, rows) => {
 		try {
 			if (!err) {
 				const orders = rows[0]
-				const openOrder = rows[1]
-				const carts = rows[2]
+				const carts = rows[1]
+				const dropPointName = rows[2][0].drop_point_name
 				const results = []
+				const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 				if ( orders.length > 0 ) {
 					for ( const data of orders ) {
 						const sample = {
 							id: data.order_id,
-							date: new Date(openOrder[0].open_order_date).toLocaleString('id'),
+							dropPointName,
+							openOrderDate: new Date(data.open_order_date).toLocaleDateString(undefined, options),
 							customer: data.order_customer,
 							phone: formatingPhone(data.order_customer_phone),
 							address: data.order_customer_address,

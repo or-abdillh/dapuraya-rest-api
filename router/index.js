@@ -21,8 +21,8 @@ module.exports = app => {
 	app.route('/orders/count')
 		.get( controller.orders.getter.count )
 
-	app.route('/orders/:openOrderId')
-		.get( controller.orders.getter.byOpenOrder )
+	app.route('/orders/:dropPoint')
+		.get( controller.orders.getter.byDropPoint )
 
 	app.route('/orders')
 		.post( controller.orders.setter.createOrder )

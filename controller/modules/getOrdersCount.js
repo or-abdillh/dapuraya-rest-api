@@ -7,7 +7,7 @@ const conn = require('../../connection.js')
 
 module.exports = (req, res) => {
 
-	const sql = 'SELECT COUNT(order_id) FROM orders'
+	let sql = 'SELECT COUNT(order_id) FROM orders'
 
 	conn.query(sql, (err, rows) => {
 		try {
