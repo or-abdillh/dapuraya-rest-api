@@ -32,10 +32,11 @@ module.exports = (req, res) => {
 					
 					const filtered =  openOrders.filter( item => item.drop_point_id === sample.dropPointID ) || false
 					if ( filtered.length > 0 ) {
+						const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 						sample.openOrders = filtered.map( item => {
 							return {
 								id: item.open_order_id,
-								date: new Date(item.open_order_date).toLocaleString('id').split(' ')[0]
+								date: new Date(item.open_order_date).toLocaleDateString(undefined, options)
 							}
 						})
 					}

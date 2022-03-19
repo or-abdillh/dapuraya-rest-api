@@ -34,8 +34,6 @@ module.exports = (req, res, next) => {
 
 	const start = process.hrtime()
 
-	console.log('hi')
-
 	res.on('finish', () => {
 		createLog(
 			req, res, getDurationInMilliseconds(start)
