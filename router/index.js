@@ -24,7 +24,7 @@ module.exports = app => {
 	app.route('/orders/:dropPoint')
 		.get( controller.orders.getter.byDropPoint )
 
-	app.route('/orders')
+	app.route('/order')
 		.post( controller.orders.setter.createOrder )
 	
 }

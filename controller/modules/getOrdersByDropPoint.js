@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 	const id = req.params.dropPoint
 
 	const sql = `
-		SELECT * FROM orders INNER JOIN open_orders ON ( orders.drop_point_id = ${id} AND orders.open_order_id = open_orders.open_order_id ) ;
+		SELECT * FROM orders INNER JOIN open_orders ON ( orders.drop_point_id = ${id} AND orders.open_order_id = open_orders.open_order_id ) ORDER BY order_id DESC ;
 		SELECT carts.order_id, products.product_name, carts.cart_amounts, carts.cart_price FROM carts INNER JOIN products ON carts.product_id = products.product_id ;
 		SELECT drop_point_name FROM drop_points WHERE drop_point_id = ${id}
 	`
