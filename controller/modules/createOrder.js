@@ -6,11 +6,11 @@ const conn = require('../../connection.js')
 module.exports  = (req, res) => {
 
 	//Parse body
-	const { openOrderId, customer, phone, address, delivered, total, paymentStatus } = req.body.order
+	const { openOrderId, dropPointId, customer, phone, address, delivered, total } = req.body.order
 	let carts = req.body.carts
 
 	//Insert into orders table
-	let sql = `INSERT INTO orders VALUES (0, '${openOrderId}', '${customer}', '${phone}', '${address}', ${delivered}, ${total.price}, ${total.item}, ${paymentStatus})`
+	let sql = `INSERT INTO orders VALUES (0, ${openOrderId}, ${dropPointId}, '${customer}', '${phone}', '${address}', ${delivered}, ${total.price}, ${total.item}, 0)`
 
 	conn.query(sql, (err, rows) => {
 		try {
@@ -30,6 +30,7 @@ module.exports  = (req, res) => {
 			} else throw err
 		} catch(err) {
 			response.sqlError(err, res)
+			console.log(err)
 		}
 	})
 }
