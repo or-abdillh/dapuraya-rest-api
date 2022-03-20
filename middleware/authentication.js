@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
 				if (!err) {
 					if (decoded.login) next()
 					else throw String('Your session invalid')
-				} else throw String('Access denied for this resource')
+				} else throw err.message
 			}
 		)
 	} catch (err) {

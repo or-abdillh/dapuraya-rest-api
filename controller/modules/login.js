@@ -20,6 +20,7 @@ module.exports = (req, res) => {
 				jwt.sign(
 					{ username, login: true },
 					process.env.JWT_SECRET_KEY,
+					{ expiresIn: '60m' },
 					(err, token) => {
 						if (!err) response.success({ token }, res)
 					}
