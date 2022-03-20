@@ -26,5 +26,8 @@ module.exports = app => {
 
 	app.route('/order')
 		.post( controller.orders.setter.createOrder )
+
+	app.route('/login')
+		.post( controller.admin.getter.login )
 	
 }

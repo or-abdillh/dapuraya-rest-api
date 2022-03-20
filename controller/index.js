@@ -27,5 +27,10 @@ module.exports = {
 		setter: {
 			createOrder: require('./modules/createOrder.js')
 		}
+	},
+	admin: {
+		getter: {
+			login: require('./modules/login.js')
+		}
 	}
 }
