@@ -15,6 +15,7 @@ module.exports = app => {
 	app.route('/open-orders')
 		.get( controller.openOrders.getter.all )
 		.put( controller.openOrders.setter.edit )
+		.post( controller.openOrders.setter.create )
 
 	app.route('/products/ready-stock')
 		.get( controller.products.getter.withReadyStock )
