@@ -15,7 +15,8 @@ module.exports = {
 		},
 		setter: {
 			edit: require('./modules/editOpenOrder.js'),
-			create: require('./modules/createOpenOrder.js')
+			create: require('./modules/createOpenOrder.js'),
+			remove: require('./modules/removeOpenOrder.js')
 		}
 	},
 	products: {
