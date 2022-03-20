@@ -29,5 +29,8 @@ module.exports = app => {
 
 	app.route('/login')
 		.post( controller.admin.getter.login )
+
+	app.route('/verification')
+		.post( controller.admin.getter.verify )
 	
 }

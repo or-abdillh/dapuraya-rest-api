@@ -30,7 +30,8 @@ module.exports = {
 	},
 	admin: {
 		getter: {
-			login: require('./modules/login.js')
+			login: require('./modules/login.js'),
+			verify: require('./modules/verification.js')
 		}
 	}
 }
