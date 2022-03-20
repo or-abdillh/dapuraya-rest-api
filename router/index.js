@@ -15,10 +15,6 @@ module.exports = app => {
 	app.route('/open-orders')
 		.get( controller.openOrders.getter.all )
 
-	app.route('/admin/open-orders')
-		.put( controller.openOrders.setter.edit )
-		.post( controller.openOrders.setter.create )
-		.delete( controller.openOrders.setter.remove )
 
 	app.route('/products/ready-stock')
 		.get( controller.products.getter.withReadyStock )
@@ -38,4 +34,11 @@ module.exports = app => {
 	app.route('/verification')
 		.post( controller.admin.getter.verify )
 	
+	app.route('/admin/open-orders')
+		.put( controller.openOrders.setter.edit )
+		.post( controller.openOrders.setter.create )
+		.delete( controller.openOrders.setter.remove )
+
+	app.route('/admin/products')
+		.post( controller.products.setter.create )
 }
