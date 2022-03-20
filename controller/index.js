@@ -12,6 +12,9 @@ module.exports = {
 	openOrders: {
 		getter: {
 			all: require('./modules/getOpenOrder.js')
+		},
+		setter: {
+			edit: require('./modules/editOpenOrder.js')
 		}
 	},
 	products: {
