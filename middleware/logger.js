@@ -14,11 +14,12 @@ const getDurationInMilliseconds = (start) => {
 const createLog = (req, res, duration) => {
 
 	const { url, method } = req
+	const { origin } = req.headers
 	const { statusCode, statusMessage } = res
 	
 	const now = new Date().toLocaleString('id')
 
-	const log = `[${now}] [${statusCode} - ${statusMessage}] ${url} ${method} ${duration.toLocaleString('id')}ms`
+	const log = `[${now}] [${statusCode} - ${statusMessage}] [${ origin === undefined ? 'unknown' :  origin}] ${url} ${method} ${duration.toLocaleString('id')}ms`
 	
 	fs.appendFile(
 		process.env.LOGGER_PATH,
