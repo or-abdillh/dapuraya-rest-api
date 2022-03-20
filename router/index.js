@@ -14,6 +14,8 @@ module.exports = app => {
 
 	app.route('/open-orders')
 		.get( controller.openOrders.getter.all )
+
+	app.route('/admin/open-orders')
 		.put( controller.openOrders.setter.edit )
 		.post( controller.openOrders.setter.create )
 		.delete( controller.openOrders.setter.remove )
