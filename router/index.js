@@ -33,6 +33,9 @@ module.exports = app => {
 
 	app.route('/verification')
 		.post( controller.admin.getter.verify )
+
+	app.route('/admin/change-password')
+		.put( controller.admin.setter.changePassword )
 	
 	app.route('/admin/open-orders')
 		.put( controller.openOrders.setter.edit )

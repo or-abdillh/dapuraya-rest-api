@@ -42,6 +42,9 @@ module.exports = {
 		getter: {
 			login: require('./modules/login.js'),
 			verify: require('./modules/verification.js')
+		}, 
+		setter: {
+			changePassword: require('./modules/changePassword.js')
 		}
 	}
 }
