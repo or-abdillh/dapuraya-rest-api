@@ -25,7 +25,8 @@ module.exports = {
 		},
 		setter: {
 			create: require('./modules/createProduct.js'),
-			edit: require('./modules/editProduct.js')
+			edit: require('./modules/editProduct.js'),
+			remove: require('./modules/removeProduct.js')
 		}
 	},
 	orders: {
