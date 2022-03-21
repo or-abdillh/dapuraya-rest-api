@@ -41,4 +41,5 @@ module.exports = app => {
 
 	app.route('/admin/products')
 		.post( controller.products.setter.create )
+		.put( controller.products.setter.edit )
 }

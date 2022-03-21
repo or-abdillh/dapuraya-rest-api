@@ -24,11 +24,17 @@ const forbidden = (msg, res) => {
 }
 
 const notFound = (msg, res) => {
-	res.status(404).send( createJSON(false, 404, 'Not found', err) )
+	res.status(404).send( createJSON(false, 404, 'Not found', msg) )
+}
+
+const serverError = (err, res) => {
+	res.status(501).send( createJSON(false, 501, 'Something wrong', err) )
 }
 
 module.exports = {
 	success,
 	sqlError,
-	forbidden
+	forbidden,
+	serverError,
+	notFound
 }

@@ -4,6 +4,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const uploader = require('express-fileupload')
 const connection = require('./connection.js')
 const router = require('./router')
 
@@ -18,7 +19,9 @@ const app = express()
 app.use( bodyParser.urlencoded({ extended: true }) )
 app.use( bodyParser.json() )
 app.use( cors() )
+app.use( uploader() )
 app.use(logger)
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 //Use authentication just for /admin router path
 app.use('/admin', authentication)
