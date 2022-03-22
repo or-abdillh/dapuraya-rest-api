@@ -27,6 +27,8 @@ module.exports = (req, res) => {
 					const sample = {
 						dropPointID: data.drop_point_id,
 						name: data.drop_point_name,
+						gmaps: data.drop_point_gmaps,
+						status: data.drop_point_status,
 						openOrders: false
 					}
 					
