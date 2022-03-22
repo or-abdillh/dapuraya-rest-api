@@ -10,7 +10,8 @@ module.exports = {
 		},
 		setter: {
 			create: require('./modules/createDropPoint.js'),
-			edit: require('./modules/editDropPoint.js')
+			edit: require('./modules/editDropPoint.js'),
+			remove: require('./modules/removeDropPoint.js')
 		}
 	},
 	openOrders: {
