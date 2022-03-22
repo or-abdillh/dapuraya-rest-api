@@ -15,7 +15,6 @@ module.exports = app => {
 	app.route('/open-orders')
 		.get( controller.openOrders.getter.all )
 
-
 	app.route('/products/ready-stock')
 		.get( controller.products.getter.withReadyStock )
 
@@ -46,4 +45,8 @@ module.exports = app => {
 		.post( controller.products.setter.create )
 		.put( controller.products.setter.edit )
 		.delete( controller.products.setter.remove )
+
+	app.route('/admin/drop-point')
+		.post( controller.dropPoints.setter.create )
+		.put( controller.dropPoints.setter.edit )
 }

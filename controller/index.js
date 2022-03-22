@@ -7,6 +7,10 @@ module.exports = {
 		getter: {
 			all: require('./modules/getDropPoints.js'),
 			withOpenOrder: require('./modules/dropPointsWithOpenOrder.js')
+		},
+		setter: {
+			create: require('./modules/createDropPoint.js'),
+			edit: require('./modules/editDropPoint.js')
 		}
 	},
 	openOrders: {
