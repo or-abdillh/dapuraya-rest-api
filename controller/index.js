@@ -11,7 +11,8 @@ module.exports = {
 		setter: {
 			create: require('./modules/createDropPoint.js'),
 			edit: require('./modules/editDropPoint.js'),
-			remove: require('./modules/removeDropPoint.js')
+			remove: require('./modules/removeDropPoint.js'),
+			changeStatus: require('./modules/changeDropPointStatus.js')
 		}
 	},
 	openOrders: {

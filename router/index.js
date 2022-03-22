@@ -50,4 +50,7 @@ module.exports = app => {
 		.post( controller.dropPoints.setter.create )
 		.put( controller.dropPoints.setter.edit )
 		.delete( controller.dropPoints.setter.remove )
+
+	app.route('/admin/drop-point/change-status')
+		.post( controller.dropPoints.setter.changeStatus )
 }
