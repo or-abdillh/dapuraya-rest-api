@@ -50,6 +50,9 @@ module.exports = app => {
 		.put( controller.orders.setter.edit )
 		.delete( controller.orders.setter.remove )
 
+	app.route('/admin/order/update-payment')
+		.put( controller.orders.setter.updatePayment )
+
 	app.route('/admin/order/:orderId')
 		.get( controller.orders.getter.byId )
 

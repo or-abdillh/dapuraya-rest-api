@@ -44,7 +44,8 @@ module.exports = {
 		setter: {
 			createOrder: require('./modules/createOrder.js'),
 			edit: require('./modules/editOrder.js'),
-			remove: require('./modules/removeOrder.js')
+			remove: require('./modules/removeOrder.js'),
+			updatePayment: require('./modules/changePaymentStatus.js')
 		}
 	},
 	admin: {
