@@ -55,6 +55,7 @@ module.exports = app => {
 	app.route('/admin/cart')
 		.post( controller.carts.setter.create )
 		.put( controller.carts.setter.edit )
+		.delete( controller.carts.setter.remove )
 
 	app.route('/admin/drop-point')
 		.post( controller.dropPoints.setter.create )
