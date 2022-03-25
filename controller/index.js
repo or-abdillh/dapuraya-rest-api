@@ -38,7 +38,8 @@ module.exports = {
 	orders: {
 		getter: {
 			count: require('./modules/getOrdersCount.js'),
-			byDropPoint: require('./modules/getOrdersByDropPoint.js')
+			byDropPoint: require('./modules/getOrdersByDropPoint.js'),
+			byId: require('./modules/getOrderById.js')
 		},
 		setter: {
 			createOrder: require('./modules/createOrder.js'),

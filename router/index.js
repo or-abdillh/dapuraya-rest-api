@@ -49,6 +49,9 @@ module.exports = app => {
 	app.route('/admin/order')
 		.put( controller.orders.setter.edit  )
 
+	app.route('/admin/order/:orderId')
+		.get( controller.orders.getter.byId  )
+
 	app.route('/admin/drop-point')
 		.post( controller.dropPoints.setter.create )
 		.put( controller.dropPoints.setter.edit )
