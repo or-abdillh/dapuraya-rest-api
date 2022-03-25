@@ -54,5 +54,10 @@ module.exports = {
 		setter: {
 			changePassword: require('./modules/changePassword.js')
 		}
+	},
+	carts: {
+		setter: {
+			create: require('./modules/createCart.js')
+		}
 	}
 }

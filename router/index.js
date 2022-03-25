@@ -52,6 +52,9 @@ module.exports = app => {
 	app.route('/admin/order/:orderId')
 		.get( controller.orders.getter.byId  )
 
+	app.route('/admin/cart')
+		.post( controller.carts.setter.create  )
+
 	app.route('/admin/drop-point')
 		.post( controller.dropPoints.setter.create )
 		.put( controller.dropPoints.setter.edit )
