@@ -24,9 +24,6 @@ module.exports = app => {
 	app.route('/orders/:dropPoint')
 		.get( controller.orders.getter.byDropPoint )
 
-	app.route('/order')
-		.post( controller.orders.setter.createOrder )
-
 	app.route('/login')
 		.post( controller.admin.getter.login )
 
@@ -45,6 +42,12 @@ module.exports = app => {
 		.post( controller.products.setter.create )
 		.put( controller.products.setter.edit )
 		.delete( controller.products.setter.remove )
+
+	app.route('/order')
+		.post( controller.orders.setter.createOrder )
+
+	app.route('/admin/order')
+		.put( controller.orders.setter.edit  )
 
 	app.route('/admin/drop-point')
 		.post( controller.dropPoints.setter.create )

@@ -41,7 +41,8 @@ module.exports = {
 			byDropPoint: require('./modules/getOrdersByDropPoint.js')
 		},
 		setter: {
-			createOrder: require('./modules/createOrder.js')
+			createOrder: require('./modules/createOrder.js'),
+			edit: require('./modules/editOrder.js')
 		}
 	},
 	admin: {

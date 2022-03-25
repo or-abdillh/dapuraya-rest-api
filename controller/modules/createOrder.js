@@ -6,16 +6,18 @@ const conn = require('../../connection.js')
 module.exports  = (req, res) => {
 
 	//Parse body
-	const { openOrderId, dropPointId, customer, phone, address, delivered, total } = req.body.order
+	const { openOrderId, dropPointId, customer, phone, address, delivered } = req.body.order
 	let carts = req.body.carts
-
-	//If total is empty but carts is not empty
-	if (total.price === 0 && total.item === 0 && carts.length > 0) {
-		carts.forEach(cart => {
-			total.price += cart.price
-			total.item += cart.amounts
-		})
+	const total = {
+		price: 0,
+		item: 0
 	}
+
+	//Count all carts
+	carts.forEach(cart => {
+		total.price += cart.price
+		total.item += cart.amounts
+	})
 
 	//Insert into orders table
 	let sql = `INSERT INTO orders VALUES (0, ${openOrderId}, ${dropPointId}, '${customer}', '${phone}', '${address}', ${delivered}, ${total.price}, ${total.item}, 0)`
