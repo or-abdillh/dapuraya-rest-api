@@ -48,6 +48,7 @@ module.exports = app => {
 
 	app.route('/admin/order')
 		.put( controller.orders.setter.edit )
+		.delete( controller.orders.setter.remove )
 
 	app.route('/admin/order/:orderId')
 		.get( controller.orders.getter.byId )
