@@ -57,7 +57,8 @@ module.exports = {
 	},
 	carts: {
 		setter: {
-			create: require('./modules/createCart.js')
+			create: require('./modules/createCart.js'),
+			edit: require('./modules/editCart.js')
 		}
 	}
 }

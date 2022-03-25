@@ -47,13 +47,14 @@ module.exports = app => {
 		.post( controller.orders.setter.createOrder )
 
 	app.route('/admin/order')
-		.put( controller.orders.setter.edit  )
+		.put( controller.orders.setter.edit )
 
 	app.route('/admin/order/:orderId')
-		.get( controller.orders.getter.byId  )
+		.get( controller.orders.getter.byId )
 
 	app.route('/admin/cart')
-		.post( controller.carts.setter.create  )
+		.post( controller.carts.setter.create )
+		.put( controller.carts.setter.edit )
 
 	app.route('/admin/drop-point')
 		.post( controller.dropPoints.setter.create )
