@@ -42,6 +42,9 @@ module.exports = app => {
 		.post( controller.products.setter.create )
 		.put( controller.products.setter.edit )
 		.delete( controller.products.setter.remove )
+	
+	app.route('/admin/products-order/:orderId')
+		.get( controller.products.getter.notFromOrder )  
 
 	app.route('/order')
 		.post( controller.orders.setter.createOrder )

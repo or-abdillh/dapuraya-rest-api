@@ -27,7 +27,8 @@ module.exports = {
 	},
 	products: {
 		getter: {
-			withReadyStock: require('./modules/productsWithReadyStock.js')
+			withReadyStock: require('./modules/productsWithReadyStock.js'),
+			notFromOrder: require('./modules/getProductsNotFromOrder.js')
 		},
 		setter: {
 			create: require('./modules/createProduct.js'),
