@@ -6,8 +6,8 @@ const conn = require('../../connection.js')
 //Update open order field
 module.exports = (req, res) => {
 	//get form update and the key
-	const { openOrderId, dropPointId, date } = req.body
-	const sql = `UPDATE open_orders SET drop_point_id = '${dropPointId}', open_order_date = ${date} WHERE open_order_id = ${openOrderId}`
+	const { openOrderId, dropPointId, date, coureerAvailable } = req.body
+	const sql = `UPDATE open_orders SET drop_point_id = '${dropPointId}', open_order_date = ${new Date(date).getTime()}, coureer_available = ${coureerAvailable} WHERE open_order_id = ${openOrderId}`
 
 	conn.query(sql, (err, rows) => {
 		try {

@@ -7,7 +7,11 @@ const conn = require('../../connection.js')
 
 module.exports = (req, res) => {
 
-	let sql = `SELECT COUNT(order_id) FROM orders WHERE drop_point_id = ${req.params.dropPoint}`
+	const { dropPoint } = req.params
+
+	let sql = `SELECT COUNT(order_id) FROM orders`
+
+	if (dropPoint !== 'all' || typeof(dropPoint) === Number) sql += ` WHERE drop_point_id = ${dropPoint}`
 
 	conn.query(sql, (err, rows) => {
 		try {

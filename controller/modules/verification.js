@@ -9,10 +9,10 @@ require('dotenv').config()
 module.exports = (req, res) => {
 	//Get TOKEN
 	//Verification token
-	const { token } = req.body
+	const { authorization } = req.headers
 	try {
 		jwt.verify(
-			token, process.env.JWT_SECRET_KEY,
+			authorization, process.env.JWT_SECRET_KEY,
 			(err, decoded) => {
 				if (!err) {
 					if (decoded.login) response.success('Your session is valid', res)

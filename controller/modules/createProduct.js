@@ -30,7 +30,10 @@ module.exports = (req, res) => {
 
 			conn.query(sql, (err, rows) => {
 				 try {
-					 if (!err) response.success(`Create new product: ${name}`, res)
+					 if (!err) response.success({
+						 msg: `Create product ${name}`,
+						 insertId: rows.insertId
+					 }, res)
 					 else throw err
 				 } catch(err) {
 					 response.sqlError(err, res)

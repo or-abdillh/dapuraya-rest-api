@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
 	conn.query(sql, (err, rows) => {
 		try {
-			if (!err && rows.affectedRows > 0) response.success(`Create new drop point at ${name}`, res)
+			if (!err && rows.affectedRows > 0) response.success({ msg: `Create new drop point at ${name}`, id: rows.insertId }, res)
 			else throw err 
 		} catch(err) {
 			response.sqlError(err, res)

@@ -28,7 +28,7 @@ module.exports = app => {
 		.post( controller.admin.getter.login )
 
 	app.route('/verification')
-		.post( controller.admin.getter.verify )
+		.get( controller.admin.getter.verify )
 
 	app.route('/admin/change-password')
 		.put( controller.admin.setter.changePassword )
