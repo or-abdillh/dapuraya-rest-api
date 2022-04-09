@@ -26,7 +26,7 @@ module.exports = (req, res) => {
 		else {
 			//Success upload file
 			const path = `http://${req.headers.host}/uploads/${fileName}`
-			const sql = `INSERT INTO products VALUES (0, '${name}', ${price}, ${stock}, '${path}')`
+			const sql = `INSERT INTO products (product_name, product_price, product_stock, product_image) VALUES ('${name}', ${price}, ${stock}, '${path}')`
 
 			conn.query(sql, (err, rows) => {
 				 try {
@@ -36,6 +36,7 @@ module.exports = (req, res) => {
 					 }, res)
 					 else throw err
 				 } catch(err) {
+					 console.log(err)
 					 response.sqlError(err, res)
 				 }
 			 })
